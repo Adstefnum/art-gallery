@@ -4,7 +4,9 @@ import './LazyImage.css';
 const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const imgRef = useRef(null);
+  const timeoutRef = useRef(null);
 
   // Generate optimized image URLs
   const getOptimizedImageUrl = (originalUrl, width) => {
@@ -57,8 +59,28 @@ const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
       if (imgRef.current) {
         observer.disconnect();
       }
+      // Clear timeout if component unmounts
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
   }, []);
+
+  const handleImageLoad = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setIsLoaded(true);
+    setHasError(false);
+  };
+
+  const handleImageError = () => {
+    // Set a timeout to show placeholder after 5 seconds of trying to load
+    timeoutRef.current = setTimeout(() => {
+      setHasError(true);
+      setIsLoaded(true); // Stop showing loading spinner
+    }, 5000);
+  };
 
   const imageUrls = getOptimizedImageUrl(src, 280); // 280px is our card width
 
@@ -68,7 +90,7 @@ const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
       className={`lazy-image-wrapper ${isLoaded ? 'loaded' : ''}`}
       style={{ aspectRatio }}
     >
-      {isInView && (
+      {isInView && !hasError && (
         <picture>
           <source
             type="image/webp"
@@ -85,15 +107,21 @@ const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
             alt={alt}
             className={`lazy-image ${className}`}
             loading="lazy"
-            onLoad={() => setIsLoaded(true)}
+            onLoad={handleImageLoad}
+            onError={handleImageError}
             width="280"
             height="280"
           />
         </picture>
       )}
-      {!isLoaded && (
+      {!isLoaded && !hasError && (
         <div className="lazy-image-placeholder">
           <div className="loading-spinner"></div>
+        </div>
+      )}
+      {hasError && (
+        <div className="image-error-placeholder">
+          <span className="placeholder-text">Image not available</span>
         </div>
       )}
     </div>
