@@ -8,7 +8,7 @@ const LazyImage = memo(({
   aspectRatio = '1/1',
   priority = false
 }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(priority);
   const [isInView, setIsInView] = useState(priority);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef(null);
@@ -97,36 +97,35 @@ const LazyImage = memo(({
       className={`lazy-image-wrapper ${isLoaded ? 'loaded' : ''}`}
       style={{ 
         aspectRatio,
-        backgroundColor: priority ? '#f0f0f0' : 'transparent'
+        backgroundColor: '#f0f0f0'
       }}
     >
-      {(isInView || priority) && (
-        <picture>
-          <source
-            type="image/webp"
-            srcSet={imageUrls.srcSet}
-            sizes="280px"
-          />
-          <img
-            src={imageUrls.src}
-            alt={alt}
-            className={`lazy-image ${className}`}
-            loading={priority ? 'eager' : 'lazy'}
-            onLoad={handleImageLoad}
-            onError={handleImageError}
-            width="280"
-            height="280"
-            style={{ 
-              display: 'block',
-              width: '100%',
-              height: '100%',
-              willChange: 'transform' // Add hardware acceleration hint
-            }}
-            fetchpriority={priority ? "high" : "auto"}
-          />
-        </picture>
-      )}
-      {!isLoaded && !hasError && (
+      <picture>
+        <source
+          type="image/webp"
+          srcSet={imageUrls.srcSet}
+          sizes="280px"
+        />
+        <img
+          src={imageUrls.src}
+          alt={alt}
+          className={`lazy-image ${className}`}
+          loading={priority ? 'eager' : 'lazy'}
+          onLoad={handleImageLoad}
+          onError={handleImageError}
+          width="280"
+          height="280"
+          style={{ 
+            display: 'block',
+            width: '100%',
+            height: '100%',
+            opacity: priority ? 1 : isLoaded ? 1 : 0,
+          }}
+          fetchpriority={priority ? "high" : "auto"}
+          decoding={priority ? "sync" : "async"}
+        />
+      </picture>
+      {!priority && !isLoaded && !hasError && (
         <div className="lazy-image-placeholder">
           <div className="loading-spinner"></div>
         </div>
