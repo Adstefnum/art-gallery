@@ -1,5 +1,6 @@
 import "./ProductImage.css";
 import Tilt from "react-parallax-tilt";
+import  LazyImage  from "../../../../components/LazyImage/LazyImage";
 
 import React from "react";
 
@@ -11,8 +12,11 @@ export const ProductImage = ({ selectedProduct }) => {
       transitionSpeed={1000}
       className="product-details-image"
     >
-      {" "}
-      <img src={selectedProduct?.img} alt={selectedProduct.name} />
+      <LazyImage 
+        src={selectedProduct?.img} 
+        alt={selectedProduct.name}
+        priority={true}
+      />
     </Tilt>
   );
 };
