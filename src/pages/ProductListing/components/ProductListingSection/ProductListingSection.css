@@ -163,3 +163,31 @@
     margin-top: 30px;
   }
 }
+
+.product-listing-section {
+  flex-grow: 1;
+  padding: 20px;
+  height: calc(100vh - 60px); /* Adjust based on your header height */
+}
+
+.products-grid {
+  padding: 20px;
+  overflow: auto !important;
+}
+
+.product-card {
+  margin: 10px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: calc(100% - 20px);
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-details {
+  padding: 15px;
+}
