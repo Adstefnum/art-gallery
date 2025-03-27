@@ -6,24 +6,20 @@ const LazyImage = ({
   alt, 
   className = '', 
   aspectRatio = '1/1',
-  priority = false // Add priority prop
+  priority = false
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(priority); // Initialize as true for priority images
+  const [isInView, setIsInView] = useState(priority);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef(null);
   const timeoutRef = useRef(null);
 
-  // Generate optimized image URLs
   const getOptimizedImageUrl = (originalUrl, width) => {
-    // If the image is from your public assets
     if (originalUrl.startsWith('/assets')) {
-      // Remove the /assets prefix for proper path resolution
       const imagePath = originalUrl.replace('/assets', '');
       
-      // Generate WebP version if supported
       return {
-        src: `${process.env.PUBLIC_URL}/assets${imagePath}`, // original path
+        src: `${process.env.PUBLIC_URL}/assets${imagePath}`,
         srcSet: `
           ${process.env.PUBLIC_URL}/assets/optimized${imagePath.replace(/\.(jpg|png|jpeg)$/, '.webp')} 1x,
           ${process.env.PUBLIC_URL}/assets/optimized${imagePath.replace(/\.(jpg|png|jpeg)$/, '@2x.webp')} 2x
@@ -35,7 +31,6 @@ const LazyImage = ({
       };
     }
     
-    // For external images, you might want to use an image CDN
     return {
       src: originalUrl,
       srcSet: originalUrl,
@@ -44,7 +39,6 @@ const LazyImage = ({
   };
 
   useEffect(() => {
-    // Skip intersection observer for priority images
     if (priority) {
       setIsInView(true);
       return;
@@ -71,7 +65,6 @@ const LazyImage = ({
       if (!priority && imgRef.current) {
         observer.disconnect();
       }
-      // Clear timeout if component unmounts
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
@@ -87,16 +80,14 @@ const LazyImage = ({
   };
 
   const handleImageError = () => {
-    // Set a timeout to show placeholder after 5 seconds of trying to load
     timeoutRef.current = setTimeout(() => {
       setHasError(true);
-      setIsLoaded(true); // Stop showing loading spinner
+      setIsLoaded(true);
     }, 5000);
   };
 
   const imageUrls = getOptimizedImageUrl(src, 280); // 280px is our card width
 
-  // Preload priority images
   useEffect(() => {
     if (priority && src) {
       const img = new Image();
@@ -110,7 +101,7 @@ const LazyImage = ({
       className={`lazy-image-wrapper ${isLoaded ? 'loaded' : ''}`}
       style={{ 
         aspectRatio,
-        backgroundColor: priority ? '#f0f0f0' : 'transparent' // Immediate background for priority images
+        backgroundColor: priority ? '#f0f0f0' : 'transparent'
       }}
     >
       {(isInView || priority) && (

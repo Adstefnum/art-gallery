@@ -44,12 +44,13 @@
   },
   "scripts": {
     "dev": "concurrently \"node server/index.js\" \"react-scripts start\"",
-    "start": "node scripts/optimize-images && concurrently \"node server/index.js\" \"react-scripts start\"",
+    "start": "concurrently \"node server/index.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "concurrently \"node server/index.js\" \"react-scripts test\"",
     "eject": "concurrently \"node server/index.js\" \"react-scripts eject\"",
     "optimize-images": "node scripts/optimize-images.js",
-    "prebuild": "npm run optimize-images"
+    "prebuild": "npm run optimize-images && npm run optimize-logo",
+    "optimize-logo": "node scripts/optimize-logo.js"
   },
   "eslintConfig": {
     "extends": "react-app"

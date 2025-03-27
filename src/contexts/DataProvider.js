@@ -20,7 +20,6 @@ export function DataProvider({ children }) {
   const [hasMore, setHasMore] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Fetch products with pagination
   const fetchProducts = useCallback(async (page = 1) => {
     try {
       setError(null);
@@ -51,14 +50,12 @@ export function DataProvider({ children }) {
     }
   }, [state.allProductsFromApi.length]);
 
-  // Load more products
   const loadMoreProducts = useCallback(() => {
     if (!loading && hasMore) {
       fetchProducts(currentPage + 1);
     }
   }, [loading, hasMore, currentPage, fetchProducts]);
 
-  // Reset products (useful for applying new filters)
   const resetProducts = useCallback(() => {
     dispatch({ type: "RESET_PRODUCTS" });
     setCurrentPage(1);
@@ -66,7 +63,6 @@ export function DataProvider({ children }) {
     fetchProducts(1);
   }, [fetchProducts]);
 
-  // Initial data fetch
   React.useEffect(() => {
     fetchProducts(1);
     getAllCategories().then(response => {

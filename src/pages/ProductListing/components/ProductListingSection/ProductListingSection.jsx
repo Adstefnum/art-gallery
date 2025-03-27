@@ -46,7 +46,6 @@ export const ProductListingSection = () => {
     }
   }, [loading, hasMore, loadMoreProducts]);
 
-  // Memoize the filtering chain
   const sortedProducts = useMemo(() => {
     const searchedProducts = getSearchedProducts(state.allProductsFromApi, state.inputSearch);
     const ratedProducts = getRatedProducts(searchedProducts, state.filters.rating);
@@ -55,7 +54,6 @@ export const ProductListingSection = () => {
     return getSortedProducts(pricedProducts, state.filters.sort);
   }, [state.allProductsFromApi, state.inputSearch, state.filters]);
 
-  // Memoize handlers for each product
   const handleAddToCart = useCallback((product) => {
     addToCartHandler(product);
   }, [addToCartHandler]);
@@ -64,23 +62,19 @@ export const ProductListingSection = () => {
     wishlistHandler(product);
   }, [wishlistHandler]);
 
-  // Add state to control when to enable tilt
   const [enableTilt, setEnableTilt] = useState(false);
 
-  // Enable tilt effects after initial render
   useEffect(() => {
     const timer = setTimeout(() => {
       setEnableTilt(true);
-    }, 1000); // Delay tilt initialization
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
 
-  // Constants for grid layout
-  const COLUMN_WIDTH = 312; // Product card width + padding
-  const ROW_HEIGHT = 520;   // Product card height + padding
+  const COLUMN_WIDTH = 312;
+  const ROW_HEIGHT = 520;
   
-  // Calculate number of columns based on container width
   const containerRef = useRef(null);
   const [numColumns, setNumColumns] = useState(3);
   
@@ -98,7 +92,6 @@ export const ProductListingSection = () => {
     return () => window.removeEventListener('resize', updateColumns);
   }, []);
 
-  // Calculate number of rows needed
   const rowCount = Math.ceil(sortedProducts.length / numColumns);
 
   const Cell = ({ columnIndex, rowIndex, style }) => {
@@ -111,7 +104,6 @@ export const ProductListingSection = () => {
     
     return (
       <div style={style}>
-        {/* Conditionally render Tilt for first product */}
         {isFirstProduct ? (
           <div className="product-card">
             <Link to={`/product-details/${product.id}`}>
@@ -256,10 +248,10 @@ export const ProductListingSection = () => {
         className="products-grid"
         columnCount={numColumns}
         columnWidth={COLUMN_WIDTH}
-        height={window.innerHeight - 100} // Adjust based on your layout
+        height={window.innerHeight - 100}
         rowCount={rowCount}
         rowHeight={ROW_HEIGHT}
-        width={containerRef.current?.offsetWidth || window.innerWidth - 300} // Adjust for sidebar
+        width={containerRef.current?.offsetWidth || window.innerWidth - 300}
       >
         {Cell}
       </FixedSizeGrid>
