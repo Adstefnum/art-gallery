@@ -39,11 +39,20 @@ export const Header = () => {
     <nav>
       <div className="nav-logo-home-button">
         <NavLink style={getActiveStyle} to="/">
-          <img
-            src="./assets/icons/logo.png"
-            alt="AWU Logo"
-            className="logo-image"
-          />
+          <picture>
+            <source
+              srcSet="./assets/optimized/icons/logo.webp"
+              type="image/webp"
+            />
+            <img
+              src="./assets/optimized/icons/logo.png"
+              alt="AWU Logo"
+              className="logo-image"
+              width="40"
+              height="40"
+              loading="eager"
+            />
+          </picture>
           <span className="brand-name">Art Waves</span>
         </NavLink>
       </div>
