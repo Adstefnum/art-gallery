@@ -1,6 +1,6 @@
 import "./ProductListingSection.css";
 import Tilt from "react-parallax-tilt";
-import React, { useCallback, useState, useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 
 import { useData } from "../../../../contexts/DataProvider.js";
 import { Link } from "react-router-dom";
@@ -32,15 +32,23 @@ export const ProductListingSection = () => {
     filters: { rating, categories, price, sort },
   } = state;
 
-  const searchedProducts = getSearchedProducts(allProductsFromApi, inputSearch);
+  // Memoize the filtering chain
+  const sortedProducts = useMemo(() => {
+    const searchedProducts = getSearchedProducts(allProductsFromApi, inputSearch);
+    const ratedProducts = getRatedProducts(searchedProducts, rating);
+    const categoryProducts = getCategoryWiseProducts(ratedProducts, categories);
+    const pricedProducts = getPricedProducts(categoryProducts, price);
+    return getSortedProducts(pricedProducts, sort);
+  }, [allProductsFromApi, inputSearch, rating, categories, price, sort]);
 
-  const ratedProducts = getRatedProducts(searchedProducts, rating);
+  // Memoize handlers for each product
+  const handleAddToCart = useCallback((product) => {
+    addToCartHandler(product);
+  }, [addToCartHandler]);
 
-  const categoryProducts = getCategoryWiseProducts(ratedProducts, categories);
-
-  const pricedProducts = getPricedProducts(categoryProducts, price);
-
-  const sortedProducts = getSortedProducts(pricedProducts, sort);
+  const handleWishlist = useCallback((product) => {
+    wishlistHandler(product);
+  }, [wishlistHandler]);
 
   return (
     <div className="product-card-container">
@@ -77,17 +85,17 @@ export const ProductListingSection = () => {
                 <Link to={`/product-details/${id}`}>
                   <div className="product-card-image">
                     <Tilt
-                    transitionSpeed={2000}
-                    tiltMaxAngleX={15}
-                    tiltMaxAngleY={15}
-                    scale={1.08}
+                      transitionSpeed={2000}
+                      tiltMaxAngleX={15}
+                      tiltMaxAngleY={15}
+                      scale={1.08}
                     >
-                    <LazyImage 
-                      src={img} 
-                      alt={name}
-                      className="product-image"
-                      aspectRatio="1/1"
-                    />
+                      <LazyImage 
+                        src={img} 
+                        alt={name}
+                        className="product-image"
+                        aspectRatio="1/1"
+                      />
                     </Tilt>
                   </div>
                 </Link>
@@ -113,13 +121,13 @@ export const ProductListingSection = () => {
                 <div className="product-card-buttons">
                   <button
                     disabled={cartLoading}
-                    onClick={() => addToCartHandler(product)}
+                    onClick={() => handleAddToCart(product)}
                     className={`cart-btn ${isProductInCart(product) ? "in-cart" : ""}`}
                   >
                     {!isProductInCart(product) ? "Add To Cart" : "Go to Cart"}
                   </button>
                   <button
-                    onClick={() => wishlistHandler(product)}
+                    onClick={() => handleWishlist(product)}
                     className="wishlist-btn"
                   >
                     {!isProductInWishlist(product) ? (
