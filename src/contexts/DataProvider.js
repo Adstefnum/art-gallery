@@ -29,7 +29,7 @@ export function DataProvider({ children }) {
       
       if (response.status === 200) {
         const newProducts = response.data.products;
-        const total = response.data.total; 
+        const total = response.data.productsCount; 
         
         dispatch({
           type: page === 1 ? "SET_PRODUCTS" : "APPEND_PRODUCTS",
@@ -38,7 +38,8 @@ export function DataProvider({ children }) {
             id: (page - 1) * PRODUCTS_PER_PAGE + index + 1,
           }))
         });
-
+        console.log("state.allProductsFromApi.length", state.allProductsFromApi.length);
+        console.log("total", total);
         setHasMore(state.allProductsFromApi.length < total);
         setCurrentPage(page);
       }
