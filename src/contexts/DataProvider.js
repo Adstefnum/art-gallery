@@ -38,8 +38,6 @@ export function DataProvider({ children }) {
             id: (page - 1) * PRODUCTS_PER_PAGE + index + 1,
           }))
         });
-        console.log("state.allProductsFromApi.length", state.allProductsFromApi.length);
-        console.log("total", total);
         setHasMore(state.allProductsFromApi.length < total);
         setCurrentPage(page);
       }
