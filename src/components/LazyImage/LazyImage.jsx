@@ -6,6 +6,35 @@ const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef(null);
 
+  // Generate optimized image URLs
+  const getOptimizedImageUrl = (originalUrl, width) => {
+    // If the image is from your public assets
+    if (originalUrl.startsWith('/assets')) {
+      // Remove the /assets prefix for proper path resolution
+      const imagePath = originalUrl.replace('/assets', '');
+      
+      // Generate WebP version if supported
+      return {
+        src: `${process.env.PUBLIC_URL}/assets${imagePath}`, // original path
+        srcSet: `
+          ${process.env.PUBLIC_URL}/assets/optimized${imagePath.replace(/\.(jpg|png|jpeg)$/, '.webp')} 1x,
+          ${process.env.PUBLIC_URL}/assets/optimized${imagePath.replace(/\.(jpg|png|jpeg)$/, '@2x.webp')} 2x
+        `,
+        fallback: `
+          ${process.env.PUBLIC_URL}/assets/optimized${imagePath} 1x,
+          ${process.env.PUBLIC_URL}/assets/optimized${imagePath.replace(/\.(jpg|png|jpeg)$/, '@2x.$1')} 2x
+        `
+      };
+    }
+    
+    // For external images, you might want to use an image CDN
+    return {
+      src: originalUrl,
+      srcSet: originalUrl,
+      fallback: originalUrl
+    };
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -15,7 +44,7 @@ const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
         }
       },
       {
-        rootMargin: '50px', // Start loading images 50px before they enter viewport
+        rootMargin: '50px',
         threshold: 0.1
       }
     );
@@ -31,6 +60,8 @@ const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
     };
   }, []);
 
+  const imageUrls = getOptimizedImageUrl(src, 280); // 280px is our card width
+
   return (
     <div 
       ref={imgRef}
@@ -38,13 +69,27 @@ const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
       style={{ aspectRatio }}
     >
       {isInView && (
-        <img
-          src={src}
-          alt={alt}
-          className={`lazy-image ${className}`}
-          loading="lazy"
-          onLoad={() => setIsLoaded(true)}
-        />
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={imageUrls.srcSet}
+            sizes="(max-width: 768px) 100vw, 280px"
+          />
+          <source
+            type="image/jpeg"
+            srcSet={imageUrls.fallback}
+            sizes="(max-width: 768px) 100vw, 280px"
+          />
+          <img
+            src={imageUrls.src}
+            alt={alt}
+            className={`lazy-image ${className}`}
+            loading="lazy"
+            onLoad={() => setIsLoaded(true)}
+            width="280"
+            height="280"
+          />
+        </picture>
       )}
       {!isLoaded && (
         <div className="lazy-image-placeholder">

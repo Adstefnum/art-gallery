@@ -37,17 +37,19 @@
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.8",
     "request": "^2.88.2",
+    "resolver-options": "^1.0.4",
     "sqlite3": "^5.1.7",
     "uuid": "^8.3.2",
-    "validator": "^13.12.0",
-    "resolver-options": "^1.0.4"
+    "validator": "^13.12.0"
   },
   "scripts": {
     "dev": "concurrently \"node server/index.js\" \"react-scripts start\"",
-    "start": "concurrently \"node server/index.js\" \"react-scripts start\"",
-    "build": "concurrently \"node server/index.js\" \"react-scripts build\"",
+    "start": "node scripts/optimize-images && concurrently \"node server/index.js\" \"react-scripts start\"",
+    "build": "react-scripts build",
     "test": "concurrently \"node server/index.js\" \"react-scripts test\"",
-    "eject": "concurrently \"node server/index.js\" \"react-scripts eject\""
+    "eject": "concurrently \"node server/index.js\" \"react-scripts eject\"",
+    "optimize-images": "node scripts/optimize-images.js",
+    "prebuild": "npm run optimize-images"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -63,5 +65,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sharp": "^0.32.6"
   }
 }
