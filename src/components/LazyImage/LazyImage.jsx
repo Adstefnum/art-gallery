@@ -1,9 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './LazyImage.css';
 
-const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
+const LazyImage = ({ 
+  src, 
+  alt, 
+  className = '', 
+  aspectRatio = '1/1',
+  priority = false // Add priority prop
+}) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(priority); // Initialize as true for priority images
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef(null);
   const timeoutRef = useRef(null);
@@ -38,6 +44,12 @@ const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
   };
 
   useEffect(() => {
+    // Skip intersection observer for priority images
+    if (priority) {
+      setIsInView(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -56,7 +68,7 @@ const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
     }
 
     return () => {
-      if (imgRef.current) {
+      if (!priority && imgRef.current) {
         observer.disconnect();
       }
       // Clear timeout if component unmounts
@@ -64,7 +76,7 @@ const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
         clearTimeout(timeoutRef.current);
       }
     };
-  }, []);
+  }, [priority]);
 
   const handleImageLoad = () => {
     if (timeoutRef.current) {
@@ -84,13 +96,24 @@ const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
 
   const imageUrls = getOptimizedImageUrl(src, 280); // 280px is our card width
 
+  // Preload priority images
+  useEffect(() => {
+    if (priority && src) {
+      const img = new Image();
+      img.src = src;
+    }
+  }, [src, priority]);
+
   return (
     <div 
-      ref={imgRef}
+      ref={!priority ? imgRef : null}
       className={`lazy-image-wrapper ${isLoaded ? 'loaded' : ''}`}
-      style={{ aspectRatio }}
+      style={{ 
+        aspectRatio,
+        backgroundColor: priority ? '#f0f0f0' : 'transparent' // Immediate background for priority images
+      }}
     >
-      {isInView && !hasError && (
+      {(isInView || priority) && (
         <picture>
           <source
             type="image/webp"
@@ -103,14 +126,21 @@ const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
             sizes="(max-width: 768px) 100vw, 280px"
           />
           <img
+            ref={imgRef}
             src={imageUrls.src}
             alt={alt}
             className={`lazy-image ${className}`}
-            loading="lazy"
+            loading={priority ? 'eager' : 'lazy'}
             onLoad={handleImageLoad}
             onError={handleImageError}
             width="280"
             height="280"
+            style={{ 
+              display: 'block',
+              width: '100%',
+              height: '100%'
+            }}
+            fetchpriority={priority ? "high" : "auto"}
           />
         </picture>
       )}
@@ -123,6 +153,9 @@ const LazyImage = ({ src, alt, className = '', aspectRatio = '1/1' }) => {
         <div className="image-error-placeholder">
           <span className="placeholder-text">Image not available</span>
         </div>
+      )}
+      {!isLoaded && priority && (
+        <div className="priority-image-placeholder" />
       )}
     </div>
   );

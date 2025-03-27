@@ -1,8 +1,11 @@
 .lazy-image-wrapper {
   position: relative;
   width: 100%;
-  overflow: hidden;
   background-color: #f0f0f0;
+  overflow: hidden;
+  min-height: 280px;
+  max-height: 280px;
+  transition: transform 0.3s ease;
 }
 
 .lazy-image {
@@ -13,7 +16,8 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease;
+  will-change: opacity;
 }
 
 .lazy-image-wrapper.loaded .lazy-image {
@@ -78,4 +82,11 @@
   font-size: 0.9rem;
   text-align: center;
   padding: 1rem;
+}
+
+/* Add hardware acceleration for smoother rendering */
+.product-card {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 } 

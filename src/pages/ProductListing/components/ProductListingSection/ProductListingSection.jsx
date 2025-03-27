@@ -1,6 +1,6 @@
 import "./ProductListingSection.css";
 import Tilt from "react-parallax-tilt";
-import React, { useCallback, useMemo, useRef, useEffect } from "react";
+import React, { useCallback, useMemo, useRef, useEffect, useState } from "react";
 
 import { useData } from "../../../../contexts/DataProvider.js";
 import { Link } from "react-router-dom";
@@ -63,6 +63,18 @@ export const ProductListingSection = () => {
     wishlistHandler(product);
   }, [wishlistHandler]);
 
+  // Add state to control when to enable tilt
+  const [enableTilt, setEnableTilt] = useState(false);
+
+  // Enable tilt effects after initial render
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setEnableTilt(true);
+    }, 1000); // Delay tilt initialization
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="product-card-container">
       {!sortedProducts.length && !loading ? (
@@ -70,81 +82,148 @@ export const ProductListingSection = () => {
           Sorry, there are no matching products!
         </h2>
       ) : (
-        sortedProducts.map((product, index) => (
-          <div
-            key={product._id}
-            ref={index === sortedProducts.length - 1 ? lastProductRef : null}
-          >
-            <Tilt
-              tiltMaxAngleX={5}
-              tiltMaxAngleY={5}
-              transitionSpeed={2000}
-              scale={1.02}
-              glareEnable={false}
+        sortedProducts.map((product, index) => {
+          const isFirstProduct = index === 0;
+          
+          return (
+            <div
+              key={product._id}
+              ref={index === sortedProducts.length - 1 ? lastProductRef : null}
             >
-              <div className="product-card" key={product._id}>
-                <Link to={`/product-details/${product.id}`}>
-                  <div className="product-card-image">
-                    <Tilt
-                      transitionSpeed={2000}
-                      tiltMaxAngleX={15}
-                      tiltMaxAngleY={15}
-                      scale={1.08}
-                    >
+              {/* Conditionally render Tilt for first product */}
+              {isFirstProduct ? (
+                <div className="product-card">
+                  <Link to={`/product-details/${product.id}`}>
+                    <div className="product-card-image">
                       <LazyImage 
                         src={product.img} 
                         alt={product.name}
                         className="product-image"
                         aspectRatio="1/1"
+                        priority={true}
                       />
-                    </Tilt>
-                  </div>
-                </Link>
+                    </div>
+                  </Link>
+                  <div className="product-card-details">
+                    <h3>{product.name}</h3>
+                    <p className="ratings">
+                      {product.rating}
+                      <BsFillStarFill color="orange" /> ({product.reviews} reviews){" "}
+                    </p>
+                    <div className="price-container">
+                      <p className="original-price">${product.original_price}</p>
+                      <p className="discount-price">${product.discounted_price}</p>
+                    </div>
 
-                <div className="product-card-details">
-                  <h3>{product.name}</h3>
-                  <p className="ratings">
-                    {product.rating}
-                    <BsFillStarFill color="orange" /> ({product.reviews} reviews){" "}
-                  </p>
-                  <div className="price-container">
-                    <p className="original-price">${product.original_price}</p>
-                    <p className="discount-price">${product.discounted_price}</p>
+                    <p>Genre: {product.category_name}</p>
+                    <div className="info">
+                      {!product.is_stock && <p className="out-of-stock">Out of stock</p>}
+                      {product.trending && <p className="trending">Trending</p>}
+                    </div>
                   </div>
 
-                  <p>Genre: {product.category_name}</p>
-                  <div className="info">
-                    {!product.is_stock && <p className="out-of-stock">Out of stock</p>}
-                    {product.trending && <p className="trending">Trending</p>}
+                  <div className="product-card-buttons">
+                    <button
+                      disabled={cartLoading}
+                      onClick={() => handleAddToCart(product)}
+                      className={`cart-btn ${isProductInCart(product) ? "in-cart" : ""}`}
+                    >
+                      {!isProductInCart(product) ? "Add To Cart" : "Go to Cart"}
+                    </button>
+                    <button
+                      onClick={() => handleWishlist(product)}
+                      className="wishlist-btn"
+                    >
+                      {!isProductInWishlist(product) ? (
+                        <AiOutlineHeart size={30} />
+                      ) : (
+                        <AiTwotoneHeart
+                          color="red"
+                          size={30}
+                        />
+                      )}
+                    </button>
                   </div>
                 </div>
+              ) : (
+                <Tilt
+                  tiltMaxAngleX={7}
+                  tiltMaxAngleY={7}
+                  perspective={800}
+                  transitionSpeed={1500}
+                  scale={1.02}
+                  gyroscope={true}
+                  enabled={enableTilt}
+                >
+                  <div className="product-card">
+                    <Link to={`/product-details/${product.id}`}>
+                      <div className="product-card-image">
+                        <Tilt
+                          tiltMaxAngleX={20}
+                          tiltMaxAngleY={20}
+                          perspective={800}
+                          transitionSpeed={1500}
+                          scale={1.1}
+                          gyroscope={false}
+                          tiltReverse={true}
+                        >
+                          <LazyImage 
+                            src={product.img} 
+                            alt={product.name}
+                            className="product-image"
+                            aspectRatio="1/1"
+                            priority={index < 4}
+                          />
+                        </Tilt>
+                      </div>
+                    </Link>
 
-                <div className="product-card-buttons">
-                  <button
-                    disabled={cartLoading}
-                    onClick={() => handleAddToCart(product)}
-                    className={`cart-btn ${isProductInCart(product) ? "in-cart" : ""}`}
-                  >
-                    {!isProductInCart(product) ? "Add To Cart" : "Go to Cart"}
-                  </button>
-                  <button
-                    onClick={() => handleWishlist(product)}
-                    className="wishlist-btn"
-                  >
-                    {!isProductInWishlist(product) ? (
-                      <AiOutlineHeart size={30} />
-                    ) : (
-                      <AiTwotoneHeart
-                        color="red"
-                        size={30}
-                      />
-                    )}
-                  </button>
-                </div>
-              </div>
-            </Tilt>
-          </div>
-        ))
+                    <div className="product-card-details">
+                      <h3>{product.name}</h3>
+                      <p className="ratings">
+                        {product.rating}
+                        <BsFillStarFill color="orange" /> ({product.reviews} reviews){" "}
+                      </p>
+                      <div className="price-container">
+                        <p className="original-price">${product.original_price}</p>
+                        <p className="discount-price">${product.discounted_price}</p>
+                      </div>
+
+                      <p>Genre: {product.category_name}</p>
+                      <div className="info">
+                        {!product.is_stock && <p className="out-of-stock">Out of stock</p>}
+                        {product.trending && <p className="trending">Trending</p>}
+                      </div>
+                    </div>
+
+                    <div className="product-card-buttons">
+                      <button
+                        disabled={cartLoading}
+                        onClick={() => handleAddToCart(product)}
+                        className={`cart-btn ${isProductInCart(product) ? "in-cart" : ""}`}
+                      >
+                        {!isProductInCart(product) ? "Add To Cart" : "Go to Cart"}
+                      </button>
+                      <button
+                        onClick={() => handleWishlist(product)}
+                        className="wishlist-btn"
+                      >
+                        {!isProductInWishlist(product) ? (
+                          <AiOutlineHeart size={30} />
+                        ) : (
+                          <AiTwotoneHeart
+                            color="red"
+                            size={30}
+                          />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                </Tilt>
+              )}
+            </div>
+          );
+        })
       )}
       {loading && (
         <div className="loading-indicator">
