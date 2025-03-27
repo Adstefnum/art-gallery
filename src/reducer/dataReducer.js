@@ -77,6 +77,24 @@ export const dataReducer = (state, action) => {
     case "RESET":
       return { ...state, filters: { ...action.payload } };
 
+    case "SET_PRODUCTS":
+      return {
+        ...state,
+        allProductsFromApi: action.payload
+      };
+    
+    case "APPEND_PRODUCTS":
+      return {
+        ...state,
+        allProductsFromApi: [...state.allProductsFromApi, ...action.payload]
+      };
+    
+    case "RESET_PRODUCTS":
+      return {
+        ...state,
+        allProductsFromApi: []
+      };
+
     default:
       return state;
   }
