@@ -1,6 +1,6 @@
 import "./ProductListingSection.css";
 import Tilt from "react-parallax-tilt";
-import React from "react";
+import React, { useCallback, useState, useMemo } from "react";
 
 import { useData } from "../../../../contexts/DataProvider.js";
 import { Link } from "react-router-dom";
@@ -14,6 +14,7 @@ import { AiTwotoneHeart } from "react-icons/ai";
 import { useUserData } from "../../../../contexts/UserDataProvider.js";
 
 import { BsFillStarFill } from "react-icons/bs";
+import LazyImage from "../../../../components/LazyImage/LazyImage";
 
 export const ProductListingSection = () => {
   const { state } = useData();
@@ -65,23 +66,28 @@ export const ProductListingSection = () => {
 
           return (
             <Tilt
-              key={product._id}
+              key={_id}
               tiltMaxAngleX={5}
               tiltMaxAngleY={5}
-              glareEnable={false}
               transitionSpeed={2000}
               scale={1.02}
+              glareEnable={false}
             >
               <div className="product-card" key={_id}>
                 <Link to={`/product-details/${id}`}>
                   <div className="product-card-image">
                     <Tilt
-                      transitionSpeed={2000}
-                      tiltMaxAngleX={15}
-                      tiltMaxAngleY={15}
-                      scale={1.08}
+                    transitionSpeed={2000}
+                    tiltMaxAngleX={15}
+                    tiltMaxAngleY={15}
+                    scale={1.08}
                     >
-                      <img src={img} alt="" />
+                    <LazyImage 
+                      src={img} 
+                      alt={name}
+                      className="product-image"
+                      aspectRatio="1/1"
+                    />
                     </Tilt>
                   </div>
                 </Link>
@@ -108,7 +114,7 @@ export const ProductListingSection = () => {
                   <button
                     disabled={cartLoading}
                     onClick={() => addToCartHandler(product)}
-                    className="cart-btn"
+                    className={`cart-btn ${isProductInCart(product) ? "in-cart" : ""}`}
                   >
                     {!isProductInCart(product) ? "Add To Cart" : "Go to Cart"}
                   </button>
@@ -120,7 +126,6 @@ export const ProductListingSection = () => {
                       <AiOutlineHeart size={30} />
                     ) : (
                       <AiTwotoneHeart
-                        AiTwotoneHeartFill
                         color="red"
                         size={30}
                       />
