@@ -1,7 +1,6 @@
 import React, {
   createContext,
   useContext,
-  useEffect,
   useReducer,
   useState,
   useCallback,
@@ -78,7 +77,7 @@ export function DataProvider({ children }) {
         });
       }
     }).catch(console.error);
-  }, []);
+  }, [fetchProducts]);
 
   const value = {
     state,
