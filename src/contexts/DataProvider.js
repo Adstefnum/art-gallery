@@ -12,7 +12,7 @@ import { dataReducer, initialState } from "../reducer/dataReducer";
 
 const DataContext = createContext();
 
-const PRODUCTS_PER_PAGE = 12; // Adjust based on your needs
+const PRODUCTS_PER_PAGE = 12; 
 
 export function DataProvider({ children }) {
   const [state, dispatch] = useReducer(dataReducer, initialState);
@@ -31,7 +31,7 @@ export function DataProvider({ children }) {
       
       if (response.status === 200) {
         const newProducts = response.data.products;
-        const total = response.data.total; // Assuming backend provides total count
+        const total = response.data.total; 
         
         dispatch({
           type: page === 1 ? "SET_PRODUCTS" : "APPEND_PRODUCTS",
