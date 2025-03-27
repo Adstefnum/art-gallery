@@ -167,12 +167,12 @@
 .product-listing-section {
   flex-grow: 1;
   padding: 20px;
-  height: calc(100vh - 60px); /* Adjust based on your header height */
+  height: 100vh;
+  overflow: hidden;
 }
 
 .products-grid {
   padding: 20px;
-  overflow: auto !important;
 }
 
 .product-card {
