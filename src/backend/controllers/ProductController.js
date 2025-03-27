@@ -10,8 +10,24 @@ import { Response } from "miragejs";
  * send GET Request at /api/products
  * */
 
-export const getAllProductsHandler = function () {
-  return new Response(200, {}, { products: this.db.products });
+export const getAllProductsHandler = function (schema, request) {
+  const page = parseInt(request.queryParams.page) || 1;
+  const limit = parseInt(request.queryParams.limit) || 12;
+  
+  const allProducts = this.db.products;
+  
+  const startIndex = (page - 1) * limit;
+  const endIndex = startIndex + limit;
+  
+  const paginatedProducts = allProducts.slice(startIndex, endIndex);
+  
+  return new Response(200, {}, {
+    success: true,
+    products: paginatedProducts,
+    productsCount: allProducts.length,
+    resultPerPage: limit,
+    filteredProductsCount: allProducts.length,
+  });
 };
 
 /**
