@@ -27,6 +27,9 @@ export const ProductListingSection = () => {
   const [enableTilt, setEnableTilt] = useState(false);
   const gridRef = useRef();
 
+  // Add ref for the sentinel element
+  const sentinelRef = useRef(null);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setEnableTilt(true);
@@ -35,6 +38,25 @@ export const ProductListingSection = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Add intersection observer
+  useEffect(() => {
+    if (!sentinelRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const sentinel = entries[0];
+        if (sentinel.isIntersecting && !loading && hasMore) {
+          loadMoreProducts();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(sentinelRef.current);
+
+    return () => observer.disconnect();
+  }, [loading, hasMore, loadMoreProducts]);
+
   const handleAddToCart = useCallback((product) => {
     addToCartHandler(product);
   }, [addToCartHandler]);
@@ -42,16 +64,6 @@ export const ProductListingSection = () => {
   const handleWishlist = useCallback((product) => {
     wishlistHandler(product);
   }, [wishlistHandler]);
-
-  const handleScroll = useCallback(({ scrollTop, scrollHeight, clientHeight }) => {
-    // Only trigger when we're near the bottom (last 20% of scroll)
-    const scrollThreshold = scrollHeight * 0.8;
-    const currentPosition = scrollTop + clientHeight;
-
-    if (!loading && hasMore && currentPosition >= scrollThreshold) {
-      loadMoreProducts();
-    }
-  }, [loading, hasMore, loadMoreProducts]);
 
   // Reset grid scroll position when products change
   useEffect(() => {
@@ -77,9 +89,6 @@ export const ProductListingSection = () => {
         rowCount={rowCount}
         rowHeight={GRID_CONSTANTS.ROW_HEIGHT}
         width={containerRef.current?.offsetWidth || window.innerWidth - GRID_CONSTANTS.WIDTH_OFFSET}
-        onScroll={handleScroll}
-        overscanRowCount={2}
-        useIsScrolling
       >
         {(props) => (
           <GridCell
@@ -95,6 +104,16 @@ export const ProductListingSection = () => {
           />
         )}
       </FixedSizeGrid>
+      
+      {/* Add loading sentinel */}
+      {hasMore && (
+        <div 
+          ref={sentinelRef} 
+          style={{ height: '20px', margin: '20px 0' }}
+        >
+          {loading && 'Loading more products...'}
+        </div>
+      )}
     </div>
   );
 };
