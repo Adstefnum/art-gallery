@@ -14,7 +14,7 @@ export const products = [
       "Evoke emotions and ignite the imagination with this captivating abstract art piece, a harmonious blend of colors and shapes that invites contemplation and reflection.",
     trending: true,
     size: 5,
-    img: "/assets/images/products-images/Abstract-1.jpg",
+    img: "/assets/optimized/images/products-imagesAbstract-1.webp",
   },
   {
     _id: uuid(),
@@ -29,7 +29,7 @@ export const products = [
       "Get instant access to a wide range of digital paintings. Download and display them on your devices or print them to adorn your living space with unique, high-quality art.",
     trending: false,
     size: 9,
-    img: "/assets/images/products-images/Digital-Painting-4.jpg",
+    img: "/assets/optimized/images/products-imagesDigital-Painting-4.webp",
   },
   {
     _id: uuid(),
@@ -44,7 +44,7 @@ export const products = [
       "Experience the depth and emotion conveyed through our expressive digital paintings. Each piece tells a unique story and elicits powerful feelings.",
     trending: true,
     size: 9,
-    img: "/assets/images/products-images/Digital-Painting-5.jpg",
+    img: "/assets/optimized/images/products-imagesDigital-Painting-5.webp",
   },
   {
     _id: uuid(),
@@ -59,7 +59,7 @@ export const products = [
       "Embrace the future of art with our digital paintings. These creations are ideal for modern art lovers who appreciate the fusion of technology and creativity.",
     trending: false,
     size: 6,
-    img: "/assets/images/products-images/Digital-Painting-6.jpg",
+    img: "/assets/optimized/images/products-imagesDigital-Painting-6.webp",
   },
   {
     _id: uuid(),
@@ -74,7 +74,7 @@ export const products = [
       "Experience the captivating world of Realism Art with our collection of meticulously detailed, true-to-life paintings that bring every subject to vivid, lifelike existence.",
     trending: true,
     size: 5,
-    img: "/assets/images/products-images/Realism-1.jpg",
+    img: "/assets/optimized/images/products-imagesRealism-1.webp",
   },
   {
     _id: uuid(),
@@ -89,7 +89,7 @@ export const products = [
       "Our Realism Art pieces transport you into a realm of stunning, hyper-realistic visuals, where each stroke of the brush reflects the precision and skill of the artist.",
     trending: false,
     size: 6,
-    img: "/assets/images/products-images/Realism-2.jpg",
+    img: "/assets/optimized/images/products-imagesRealism-2.webp",
   },
   {
     _id: uuid(),
@@ -104,7 +104,7 @@ export const products = [
       "Discover the magic of Realism Art, where artists skillfully capture the beauty of everyday life in exquisite detail, evoking a sense of wonder and reverence for the ordinary.",
     trending: false,
     size: 7,
-    img: "/assets/images/products-images/Realism-3.jpg",
+    img: "/assets/optimized/images/products-imagesRealism-3.webp",
   },
   {
     _id: uuid(),
@@ -119,7 +119,7 @@ export const products = [
       "Immerse yourself in the world of Realism Art, where artists' dedication to accuracy and intricate craftsmanship produces artworks that make you question if you're gazing at a painting or a photograph.",
     trending: true,
     size: 7,
-    img: "/assets/images/products-images/Realism-4.jpg",
+    img: "/assets/optimized/images/products-imagesRealism-4.webp",
   },
 
   {
@@ -135,7 +135,7 @@ export const products = [
       "Realism Art is a testament to the artist's unparalleled talent, where every canvas becomes a window into reality, reflecting the world with a level of detail that's awe-inspiring.",
     trending: true,
     size: 8,
-    img: "/assets/images/products-images/Realism-5.jpg",
+    img: "/assets/optimized/images/products-imagesRealism-5.webp",
   },
   {
     _id: uuid(),
@@ -150,7 +150,7 @@ export const products = [
       "Our Realism Art collection pays homage to the art of observation, where each piece invites you to explore the minute details of the world, from the play of light to the subtleties of human expression.",
     trending: false,
     size: 9,
-    img: "/assets/images/products-images/Realism-6.jpg",
+    img: "/assets/optimized/images/products-imagesRealism-6.webp",
   },
   {
     _id: uuid(),
@@ -165,7 +165,7 @@ export const products = [
       "Elevate your space with our mesmerizing 3D art pieces, where depth and dimension come to life in vivid, captivating forms that ignite your imagination.",
     trending: false,
     size: 7,
-    img: "/assets/images/products-images/3D-Art-1.jpg",
+    img: "/assets/optimized/images/products-images3D-Art-1.webp",
   },
   {
     _id: uuid(),
@@ -180,7 +180,7 @@ export const products = [
       "Immerse yourself in the world of three-dimensional art, where each piece is a dynamic fusion of color, light, and texture that transforms your surroundings into a visual masterpiece.",
     trending: true,
     size: 5,
-    img: "/assets/images/products-images/3D-Art-2.jpg",
+    img: "/assets/optimized/images/products-images3D-Art-2.webp",
   },
   {
     _id: uuid(),
@@ -195,7 +195,7 @@ export const products = [
       "Our collection of 3D art is a symphony of shapes and shadows, bringing a new dimension to your decor with pieces that seem to breathe and evolve right before your eyes.",
     trending: true,
     size: 6,
-    img: "/assets/images/products-images/3D-Art-3.jpg",
+    img: "/assets/optimized/images/products-images3D-Art-3.webp",
   },
   {
     _id: uuid(),
@@ -210,7 +210,7 @@ export const products = [
       "Explore the captivating world of 3D artistry, where your walls become portals to another dimension, and every glance reveals new depths of creativity and intrigue.",
     trending: false,
     size: 5,
-    img: "/assets/images/products-images/3D-Art-4.jpg",
+    img: "/assets/optimized/images/products-images3D-Art-4.webp",
   },
   {
     _id: uuid(),
@@ -225,7 +225,7 @@ export const products = [
       "Experience art like never before with our range of 3D creations that add a striking layer of depth to your space, leaving you in awe of the intricate details and optical illusions.",
     trending: false,
     size: 12,
-    img: "/assets/images/products-images/3D-Art-5.jpg",
+    img: "/assets/optimized/images/products-images3D-Art-5.webp",
   },
   {
     _id: uuid(),
@@ -240,7 +240,7 @@ export const products = [
       "Unveil a new realm of artistic expression with our 3D art pieces, which expertly blend technique and innovation to create stunning visual effects that play with your perception.",
     trending: false,
     size: 11,
-    img: "/assets/images/products-images/3D-Art-6.jpg",
+    img: "/assets/optimized/images/products-images3D-Art-6.webp",
   },
   {
     _id: uuid(),
@@ -255,7 +255,7 @@ export const products = [
       "Explore the world of pixel art with this captivating creation. Each pixel has been carefully placed to form a stunning visual masterpiece, making it a unique addition to your art collection.",
     trending: false,
     size: 10,
-    img: "/assets/images/products-images/image-men-12.jpg",
+    img: "/assets/optimized/images/products-imagesimage-men-12.webp",
   },
   {
     _id: uuid(),
@@ -270,7 +270,7 @@ export const products = [
       " Our talented artists bring your vision to life with custom pixel art. Whether it's a favorite character or a personal portrait, we transform your ideas into a pixelated work of art.",
     trending: false,
     size: 9,
-    img: "/assets/images/products-images/image-men-13.jpg",
+    img: "/assets/optimized/images/products-imagesimage-men-13.webp",
   },
   {
     _id: uuid(),
@@ -285,7 +285,7 @@ export const products = [
       "Gamers, rejoice! Immerse yourself in nostalgia with our pixel art inspired by classic video game aesthetics. These pixelated designs celebrate the golden era of gaming.",
     trending: false,
     size: 8,
-    img: "/assets/images/products-images/image-men-14.jpg",
+    img: "/assets/optimized/images/products-imagesimage-men-14.webp",
   },
   {
     _id: uuid(),
@@ -300,7 +300,7 @@ export const products = [
       "Elevate your space with pixel art home decor. These pieces blend modern and retro, adding a touch of pixelated charm to your living room, bedroom, or office.",
     trending: true,
     size: 9,
-    img: "/assets/images/products-images/image-men-15.jpg",
+    img: "/assets/optimized/images/products-imagesimage-men-15.webp",
   },
   {
     _id: uuid(),
@@ -315,7 +315,7 @@ export const products = [
       "Unleash your creativity with our Pixel Art DIY Kits. These kits come with everything you need to create your pixelated masterpiece. A fantastic project for all ages!",
     trending: true,
     size: 8,
-    img: "/assets/images/products-images/image-men-16.jpg",
+    img: "/assets/optimized/images/products-imagesimage-men-16.webp",
   },
   {
     _id: uuid(),
@@ -330,7 +330,7 @@ export const products = [
       "Cherish your furry friend with a custom pixel art portrait. Our artists capture the personality of your pet in pixel form, making it a delightful keepsake.",
     trending: true,
     size: 6,
-    img: "/assets/images/products-images/image-men-17.jpg",
+    img: "/assets/optimized/images/products-imagesimage-men-17.webp",
   },
   {
     _id: uuid(),
@@ -345,7 +345,7 @@ export const products = [
       "Discover the enchanting world of fantasy art with our collection of mesmerizing pieces. Dive into realms of imagination and let your mind wander through vivid, otherworldly landscapes and characters.",
     trending: false,
     size: 8,
-    img: "/assets/images/products-images/Fantasy-1.jpg",
+    img: "/assets/optimized/images/products-imagesFantasy-1.webp",
   },
   {
     _id: uuid(),
@@ -360,7 +360,7 @@ export const products = [
       "Unleash your inner dreamer with our fantasy art selection, where mystical creatures, epic adventures, and magical landscapes come to life on canvas. Transport yourself to a realm of wonder and fascination.",
     trending: true,
     size: 9,
-    img: "/assets/images/products-images/Fantasy-2.jpg",
+    img: "/assets/optimized/images/products-imagesFantasy-2.webp",
   },
   {
     _id: uuid(),
@@ -375,7 +375,7 @@ export const products = [
       "Our fantasy art pieces are a portal to the extraordinary. These captivating creations invite you to explore realms where dragons soar, wizards cast spells, and heroes embark on epic quests.",
     trending: false,
     size: 10,
-    img: "/assets/images/products-images/Fantasy-3.jpg",
+    img: "/assets/optimized/images/products-imagesFantasy-3.webp",
   },
   {
     _id: uuid(),
@@ -390,7 +390,7 @@ export const products = [
       "Evoke a sense of magic and mystique in your space with our fantasy art collection. These masterpieces transport you to mythical worlds filled with fantastical creatures, enchanting forests, and grand castles.",
     trending: false,
     size: 9,
-    img: "/assets/images/products-images/Fantasy-4.jpg",
+    img: "/assets/optimized/images/products-imagesFantasy-4.webp",
   },
   {
     _id: uuid(),
@@ -405,7 +405,7 @@ export const products = [
       "Immerse yourself in the realm of fantasy with our captivating art pieces. Each one tells a unique story, offering a glimpse into the imagination of talented artists who bring dreams to life.",
     trending: true,
     size: 6,
-    img: "/assets/images/products-images/Fantasy-5.jpg",
+    img: "/assets/optimized/images/products-imagesFantasy-5.webp",
   },
   {
     _id: uuid(),
@@ -420,7 +420,7 @@ export const products = [
       "Step into the fantastical with our fantasy art, where each piece is a visual masterpiece that sparks the imagination. These artworks offer an escape to realms of wonder and adventure.",
     trending: false,
     size: 8,
-    img: "/assets/images/products-images/Fantasy-6.jpg",
+    img: "/assets/optimized/images/products-imagesFantasy-6.webp",
   },
   {
     _id: uuid(),
@@ -435,7 +435,7 @@ export const products = [
       "Experience a fusion of imagination and technology with our Sci-Fi Art collection, where otherworldly landscapes and futuristic concepts come to life through mesmerizing visuals and intricate details.",
     trending: false,
     size: 5,
-    img: "/assets/images/products-images/Sci-Fi-1.jpg",
+    img: "/assets/optimized/images/products-imagesSci-Fi-1.webp",
   },
   {
     _id: uuid(),
@@ -450,7 +450,7 @@ export const products = [
       "Journey beyond the boundaries of reality into the realm of Sci-Fi Art, where the unknown meets the extraordinary. Explore captivating depictions of space, cyberspace, and parallel dimensions in this thought-provoking collection.",
     trending: true,
     size: 5,
-    img: "/assets/images/products-images/Sci-Fi-2.jpg",
+    img: "/assets/optimized/images/products-imagesSci-Fi-2.webp",
   },
   {
     _id: uuid(),
@@ -465,7 +465,7 @@ export const products = [
       "Unleash your inner explorer and embark on a visual adventure with our Sci-Fi Art. Dive into a world of futuristic cities, alien landscapes, and advanced technology, all brought to life with stunning creativity.",
     trending: false,
     size: 7,
-    img: "/assets/images/products-images/Sci-Fi-3.jpg",
+    img: "/assets/optimized/images/products-imagesSci-Fi-3.webp",
   },
   {
     _id: uuid(),
@@ -480,7 +480,7 @@ export const products = [
       "Immerse yourself in the mind-bending universe of Sci-Fi Art, where artists envision the future and the cosmos in ways that defy imagination. These captivating pieces transport you to a world of infinite possibilities.",
     trending: true,
     size: 8,
-    img: "/assets/images/products-images/Sci-Fi-4.jpg",
+    img: "/assets/optimized/images/products-imagesSci-Fi-4.webp",
   },
   {
     _id: uuid(),
@@ -495,7 +495,7 @@ export const products = [
       "Discover the boundless creativity of Sci-Fi Art. Each piece tells a unique story, transporting you to distant galaxies, dystopian futures, and advanced civilizations. Unleash your curiosity and embark on an artistic odyssey.",
     trending: false,
     size: 9,
-    img: "/assets/images/products-images/Sci-Fi-5.jpg",
+    img: "/assets/optimized/images/products-imagesSci-Fi-5.webp",
   },
   {
     _id: uuid(),
@@ -510,7 +510,7 @@ export const products = [
       "Our Sci-Fi Art collection takes you on a visual journey through the wonders of science fiction. From space exploration to post-apocalyptic landscapes, these artworks are windows to speculative futures that intrigue and inspire.",
     trending: false,
     size: 10,
-    img: "/assets/images/products-images/Sci-Fi-6.jpg",
+    img: "/assets/optimized/images/products-imagesSci-Fi-6.webp",
   },
   {
     _id: uuid(),
@@ -525,7 +525,7 @@ export const products = [
       "Elevate your space with our exquisite floral art, a captivating blend of nature's beauty and artistic expression. Each piece is a masterpiece of color, form, and serenity.",
     trending: false,
     size: 12,
-    img: "/assets/images/products-images/Floral-1.jpg",
+    img: "/assets/optimized/images/products-imagesFloral-1.webp",
   },
   {
     _id: uuid(),
@@ -540,7 +540,7 @@ export const products = [
       "Experience the timeless charm of floral art as it adds a touch of elegance to your decor. Our carefully crafted pieces capture the essence of the natural world.",
     trending: false,
     size: 11,
-    img: "/assets/images/products-images/Floral-2.jpg",
+    img: "/assets/optimized/images/products-imagesFloral-2.webp",
   },
   {
     _id: uuid(),
@@ -555,7 +555,7 @@ export const products = [
       "Bring the outdoors in with our stunning floral art collection. These pieces offer a refreshing burst of color and vitality, perfect for creating a serene ambiance.",
     trending: false,
     size: 10,
-    img: "/assets/images/products-images/Floral-3.jpg",
+    img: "/assets/optimized/images/products-imagesFloral-3.webp",
   },
   {
     _id: uuid(),
@@ -570,7 +570,7 @@ export const products = [
       "Floral art, where nature meets creativity. These captivating pieces add a touch of botanical wonder to your home, creating a sense of tranquility and beauty.",
     trending: false,
     size: 9,
-    img: "/assets/images/products-images/Floral-4.jpg",
+    img: "/assets/optimized/images/products-imagesFloral-4.webp",
   },
 
   {
@@ -586,7 +586,7 @@ export const products = [
       "Our floral art is a symphony of colors and shapes, a visual delight that brings the garden indoors. Embrace the vibrancy and grace of nature's finest blooms.",
     trending: false,
     size: 5,
-    img: "/assets/images/products-images/Floral-5.jpg",
+    img: "/assets/optimized/images/products-imagesFloral-5.webp",
   },
   {
     _id: uuid(),
@@ -601,7 +601,7 @@ export const products = [
       "Transform your living space into a blooming garden with our floral art. Each piece is a testimony to the delicate beauty of flowers, reimagined in art form.",
     trending: false,
     size: 5,
-    img: "/assets/images/products-images/Floral-6.jpg",
+    img: "/assets/optimized/images/products-imagesFloral-6.webp",
   },
   {
     _id: uuid(),
@@ -616,7 +616,7 @@ export const products = [
       "Add a touch of sophistication to your space with this striking abstract art creation, a mesmerizing fusion of vibrant hues and dynamic forms that create a visual symphony.",
     trending: true,
     size: 7,
-    img: "/assets/images/products-images/Abstract-2.jpg",
+    img: "/assets/optimized/images/products-imagesAbstract-2.webp",
   },
   {
     _id: uuid(),
@@ -631,7 +631,7 @@ export const products = [
       "Transform your surroundings with this abstract art masterpiece, a compelling representation of artistic freedom that transcends boundaries and sparks curiosity.",
     trending: false,
     size: 4,
-    img: "/assets/images/products-images/Abstract-3.jpg",
+    img: "/assets/optimized/images/products-imagesAbstract-3.webp",
   },
   {
     _id: uuid(),
@@ -646,7 +646,7 @@ export const products = [
       "Experience the power of abstract expressionism with this art piece, a stunning amalgamation of lines and colors that invites viewers to interpret and connect with the artwork on a personal level.",
     trending: false,
     size: 9,
-    img: "/assets/images/products-images/Abstract-4.jpg",
+    img: "/assets/optimized/images/products-imagesAbstract-4.webp",
   },
   {
     _id: uuid(),
@@ -661,7 +661,7 @@ export const products = [
       "Enhance your decor with this thought-provoking abstract art composition, a mesmerizing fusion of brushstrokes and textures that infuse energy and intrigue into any room.",
     trending: false,
     size: 7,
-    img: "/assets/images/products-images/Abstract-5.jpg",
+    img: "/assets/optimized/images/products-imagesAbstract-5.webp",
   },
   {
     _id: uuid(),
@@ -676,7 +676,7 @@ export const products = [
       "Immerse yourself in the world of abstraction with this captivating art creation, a non-representational masterpiece that speaks to the subconscious and encourages free thought.",
     trending: false,
     size: 5,
-    img: "/assets/images/products-images/Abstract-6.jpg",
+    img: "/assets/optimized/images/products-imagesAbstract-6.webp",
   },
 
   {
@@ -692,7 +692,7 @@ export const products = [
       "Capture the essence of nature's beauty with our exquisite oil painting. This stunning masterpiece brings landscapes to life with rich, vibrant colors and intricate brushwork.",
     trending: false,
     size: 5,
-    img: "/assets/images/products-images/Oil-Painting-1.jpg",
+    img: "/assets/optimized/images/products-imagesOil-Painting-1.webp",
   },
   {
     _id: uuid(),
@@ -707,7 +707,7 @@ export const products = [
       "Adorn your living space with an oil painting that adds a touch of elegance and sophistication. The textured layers and deep hues in this piece create a captivating visual experience.",
     trending: true,
     size: 7,
-    img: "/assets/images/products-images/Oil-Painting-2.jpg",
+    img: "/assets/optimized/images/products-imagesOil-Painting-2.webp",
   },
   {
     _id: uuid(),
@@ -722,7 +722,7 @@ export const products = [
       "This oil painting is a true work of art, evoking emotion and inspiration. Its blend of colors and textures showcases the artist's mastery and talent, making it a focal point in any room.",
     trending: false,
     size: 7,
-    img: "/assets/images/products-images/Oil-Painting-3.jpg",
+    img: "/assets/optimized/images/products-imagesOil-Painting-3.webp",
   },
   {
     _id: uuid(),
@@ -737,7 +737,7 @@ export const products = [
       "Experience the timeless allure of oil painting with this remarkable piece. Its harmonious blend of colors and intricate detailing offers a visual feast that captures the essence of the subject matter.",
     trending: false,
     size: 10,
-    img: "/assets/images/products-images/Oil-Painting-4.jpg",
+    img: "/assets/optimized/images/products-imagesOil-Painting-4.webp",
   },
   {
     _id: uuid(),
@@ -752,7 +752,7 @@ export const products = [
       "Transform your home into a gallery of fine art with this oil painting. Its unique composition and use of light and shadow create a captivating narrative that resonates with viewers.",
     trending: false,
     size: 9,
-    img: "/assets/images/products-images/Oil-Painting-5.jpg",
+    img: "/assets/optimized/images/products-imagesOil-Painting-5.webp",
   },
   {
     _id: uuid(),
@@ -767,7 +767,7 @@ export const products = [
       "Indulge in the luxury of fine art with our oil painting. The depth and richness of the colors add depth and warmth to your space, making it a conversation piece for art enthusiasts.",
     trending: false,
     size: 6,
-    img: "/assets/images/products-images/Oil-Painting-6.jpg",
+    img: "/assets/optimized/images/products-imagesOil-Painting-6.webp",
   },
   {
     _id: uuid(),
@@ -782,7 +782,7 @@ export const products = [
       "Explore a world of color and creativity with our digital paintings. These pieces of art come to life on your screen, offering a stunning and vibrant addition to your collection.",
     trending: true,
     size: 6,
-    img: "/assets/images/products-images/Digital-Painting-1.jpg",
+    img: "/assets/optimized/images/products-imagesDigital-Painting-1.webp",
   },
   {
     _id: uuid(),
@@ -797,7 +797,7 @@ export const products = [
       "Our digital paintings capture the elegance and timelessness of traditional art, with a modern twist. Perfect for art enthusiasts looking to adorn their digital spaces.",
     trending: false,
     size: 7,
-    img: "/assets/images/products-images/Digital-Painting-2.jpg",
+    img: "/assets/optimized/images/products-imagesDigital-Painting-2.webp",
   },
   {
     _id: uuid(),
@@ -812,7 +812,7 @@ export const products = [
       "Discover the beauty of customization with our digital paintings. Personalize your favorite artwork to match your style and preferences, creating a one-of-a-kind masterpiece.",
     trending: false,
     size: 8,
-    img: "/assets/images/products-images/Digital-Painting-3.jpg",
+    img: "/assets/optimized/images/products-imagesDigital-Painting-3.webp",
   },
   {
     _id: uuid(),
@@ -827,7 +827,7 @@ export const products = [
       "Celebrate your love for animals with our stunning Animals and Pets Art collection. From graceful horses to playful puppies, these exquisite artworks capture the beauty and charm of the animal kingdom.",
     trending: false,
     size: 7,
-    img: "/assets/images/products-images/Animals_and_Pets-1.jpg",
+    img: "/assets/optimized/images/products-imagesAnimals_and_Pets-1.webp",
   },
   {
     _id: uuid(),
@@ -842,7 +842,7 @@ export const products = [
       "Transform your space into a haven for pet enthusiasts with our Animals and Pets Art. Each piece showcases the unique personalities and spirit of our four-legged companions, making it a perfect addition to any pet lover's decor.",
     trending: false,
     size: 8,
-    img: "/assets/images/products-images/Animals_and_Pets-2.jpg",
+    img: "/assets/optimized/images/products-imagesAnimals_and_Pets-2.webp",
   },
   {
     _id: uuid(),
@@ -857,7 +857,7 @@ export const products = [
       "Discover the heartwarming world of animals through our Animals and Pets Art. Whether you're an animal lover or an art enthusiast, our collection offers a delightful range of pieces that evoke the pure joy and connection we share with our furry friends.",
     trending: false,
     size: 5,
-    img: "/assets/images/products-images/Animals_and_Pets-3.jpg",
+    img: "/assets/optimized/images/products-imagesAnimals_and_Pets-3.webp",
   },
   {
     _id: uuid(),
@@ -872,7 +872,7 @@ export const products = [
       "Our Animals and Pets Art collection is a tribute to the loyal companions that enrich our lives. From majestic wildlife to beloved pets, these artworks capture the essence of the animal kingdom, allowing you to bring the natural world into your home",
     trending: false,
     size: 5,
-    img: "/assets/images/products-images/Animals_and_Pets-4.jpg",
+    img: "/assets/optimized/images/products-imagesAnimals_and_Pets-4.webp",
   },
 
   {
@@ -888,7 +888,7 @@ export const products = [
       "Animals and Pets Art: A collection that speaks to the soul of every animal lover. These artworks are a visual symphony of creatures big and small, offering a touch of nature's beauty to adorn your walls.",
     trending: false,
     size: 8,
-    img: "/assets/images/products-images/Animals_and_Pets-5.jpg",
+    img: "/assets/optimized/images/products-imagesAnimals_and_Pets-5.webp",
   },
   {
     _id: uuid(),
@@ -903,7 +903,7 @@ export const products = [
       "Unleash the beauty and grace of the animal kingdom with our Animals and Pets Art. This collection celebrates the diversity and majesty of creatures from around the world, offering a perfect touch of nature for your home decor.",
     trending: true,
     size: 11,
-    img: "/assets/images/products-images/Animals_and_Pets-6.jpg",
+    img: "/assets/optimized/images/products-imagesAnimals_and_Pets-6.webp",
   },
   {
     _id: uuid(),
@@ -918,7 +918,7 @@ export const products = [
       "Elevate your space with our Black and White Art collection, showcasing the timeless beauty of monochromatic design. These striking pieces capture the essence of simplicity and sophistication.",
     trending: false,
     size: 12,
-    img: "/assets/images/products-images/Black_and_White-1.jpg",
+    img: "/assets/optimized/images/products-imagesBlack_and_White-1.webp",
   },
   {
     _id: uuid(),
@@ -933,7 +933,7 @@ export const products = [
       "Our Black and White Art evokes a sense of minimalistic beauty, emphasizing the power of contrast. These pieces effortlessly complement any decor, adding a touch of refinement to your space.",
     trending: false,
     size: 9,
-    img: "/assets/images/products-images/Black_and_White-2.jpg",
+    img: "/assets/optimized/images/products-imagesBlack_and_White-2.webp",
   },
   {
     _id: uuid(),
@@ -948,7 +948,7 @@ export const products = [
       "Make a statement with our Black and White Art. These pieces command attention with their dramatic use of light and shadow, creating a captivating focal point in any room.",
     trending: false,
     size: 7,
-    img: "/assets/images/products-images/Black_and_White-3.jpg",
+    img: "/assets/optimized/images/products-imagesBlack_and_White-3.webp",
   },
   {
     _id: uuid(),
@@ -963,7 +963,7 @@ export const products = [
       "Make a statement with our Black and White Art. These pieces command attention with their dramatic use of light and shadow, creating a captivating focal point in any room.",
     trending: false,
     size: 5,
-    img: "/assets/images/products-images/Black_and_White-4.jpg",
+    img: "/assets/optimized/images/products-imagesBlack_and_White-4.webp",
   },
   {
     _id: uuid(),
@@ -978,7 +978,7 @@ export const products = [
       "Our Black and White Art speaks volumes through simplicity. These pieces are a testament to the beauty of less-is-more, making them a perfect choice for those who appreciate understated elegance",
     trending: true,
     size: 7,
-    img: "/assets/images/products-images/Black_and_White-5.jpg",
+    img: "/assets/optimized/images/products-imagesBlack_and_White-5.webp",
   },
   {
     _id: uuid(),
@@ -993,7 +993,7 @@ export const products = [
       "Embrace the classic charm of Black and White Art. These artworks celebrate the timeless appeal of black and white, adding a touch of sophistication and versatility to your decor.",
     trending: true,
     size: 10,
-    img: "/assets/images/products-images/Black_and_White-6.jpg",
+    img: "/assets/optimized/images/products-imagesBlack_and_White-6.webp",
   },
 
   {
@@ -1009,7 +1009,7 @@ export const products = [
       "Explore the soothing world of Pastel Colors Art, where gentle hues and delicate shades blend harmoniously to create artwork that exudes tranquility and elegance. Perfect for those seeking a sense of calm and sophistication in their space.",
     trending: false,
     size: 8,
-    img: "/assets/images/products-images/Pastel_Colors-1.jpg",
+    img: "/assets/optimized/images/products-imagesPastel_Colors-1.webp",
   },
   {
     _id: uuid(),
@@ -1024,7 +1024,7 @@ export const products = [
       "Pastel Colors Art is a delightful collection of artwork, featuring soft and muted shades that bring a touch of serenity to your surroundings. These pieces evoke a sense of gentle beauty and are perfect for creating a relaxing ambiance.",
     trending: false,
     size: 7,
-    img: "/assets/images/products-images/Pastel_Colors-2.jpg",
+    img: "/assets/optimized/images/products-imagesPastel_Colors-2.webp",
   },
 
   {
@@ -1040,7 +1040,7 @@ export const products = [
       "Indulge in the subtle allure of Pastel Colors Art. Each piece is a testament to the artist's skill in using soft, pastel hues to create artwork that is both visually pleasing and emotionally calming. Bring a sense of grace to your space with these beautiful creations.",
     trending: false,
     size: 11,
-    img: "/assets/images/products-images/Pastel_Colors-3.jpg",
+    img: "/assets/optimized/images/products-imagesPastel_Colors-3.webp",
   },
   {
     _id: uuid(),
@@ -1055,7 +1055,7 @@ export const products = [
       "Pastel Colors Art is a celebration of gentle aesthetics, where artists use pastel tones to convey emotions, tell stories, and capture moments in a beautifully understated way. Perfect for those who appreciate the understated beauty of art.",
     trending: false,
     size: 12,
-    img: "/assets/images/products-images/Pastel_Colors-4.jpg",
+    img: "/assets/optimized/images/products-imagesPastel_Colors-4.webp",
   },
   {
     _id: uuid(),
@@ -1070,7 +1070,7 @@ export const products = [
       "Experience the enchanting world of Pastel Colors Art, where soft tones and delicate hues come together to create artwork that is both visually striking and emotionally captivating. This collection is a testament to the power of subtlety in art.",
     trending: true,
     size: 11,
-    img: "/assets/images/products-images/Pastel_Colors-5.jpg",
+    img: "/assets/optimized/images/products-imagesPastel_Colors-5.webp",
   },
   {
     _id: uuid(),
@@ -1085,7 +1085,7 @@ export const products = [
       "Pastel Colors Art is a fusion of art and serenity. With a palette of pastel shades, these pieces bring a sense of calm and sophistication to your living spaces. Enjoy the gentle beauty and elegance of these exquisite artworks.",
     trending: false,
     size: 10,
-    img: "/assets/images/products-images/Pastel_Colors-6.jpg",
+    img: "/assets/optimized/images/products-imagesPastel_Colors-6.webp",
   },
 
   {
@@ -1101,7 +1101,7 @@ export const products = [
       "Elevate your interior design with this contemporary abstract art piece, a visual feast of bold shapes and patterns that adds a touch of modern elegance to your living space.",
     trending: false,
     size: 9,
-    img: "/assets/images/products-images/Abstract-7.jpg",
+    img: "/assets/optimized/images/products-imagesAbstract-7.webp",
   },
   {
     _id: uuid(),
@@ -1116,7 +1116,7 @@ export const products = [
       "Immerse yourself in the world of artistry with this oil painting. Its intricate brushwork and meticulous attention to detail make it a true masterpiece, offering an unforgettable visual experience.",
     trending: false,
     size: 9,
-    img: "/assets/images/products-images/image-women-27.jpg",
+    img: "/assets/optimized/images/products-imagesimage-women-27.webp",
   },
   {
     _id: uuid(),
@@ -1131,7 +1131,7 @@ export const products = [
       "Explore a world of color and creativity with our digital paintings. These pieces of art come to life on your screen, offering a stunning and vibrant addition to your collection.",
     trending: true,
     size: 6,
-    img: "/assets/images/products-images/image-women-28.jpg",
+    img: "/assets/optimized/images/products-imagesimage-women-28.webp",
   },
   {
     _id: uuid(),
@@ -1146,7 +1146,7 @@ export const products = [
       "In the realm of Realism Art, artists convey stories through the minute precision of their work, turning the canvas into a medium where emotions and reality seamlessly intertwine.",
     trending: true,
     size: 8,
-    img: "/assets/images/products-images/image-women-29.jpg",
+    img: "/assets/optimized/images/products-imagesimage-women-29.webp",
   },
   {
     _id: uuid(),
@@ -1161,7 +1161,7 @@ export const products = [
       "Our 3D art is a fusion of craftsmanship and creativity, allowing you to immerse yourself in a world of optical enchantment where form and space converge in captivating harmony.",
     trending: true,
     size: 11,
-    img: "/assets/images/products-images/image-women-30.jpg",
+    img: "/assets/optimized/images/products-imagesimage-women-30.webp",
   },
   {
     _id: uuid(),
@@ -1176,6 +1176,6 @@ export const products = [
       "Adorn your walls with modern geometric pixel art prints. These abstract compositions play with color and shape, creating a visually captivating display in your home or office.",
     trending: false,
     size: 8,
-    img: "/assets/images/products-images/image-women-31.jpg",
+    img: "/assets/optimized/images/products-imagesimage-women-31.webp",
   },
 ];
