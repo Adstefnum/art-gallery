@@ -27,7 +27,6 @@ export const ProductListingSection = () => {
   const [enableTilt, setEnableTilt] = useState(false);
   const gridRef = useRef();
 
-  // Add ref for the sentinel element
   const sentinelRef = useRef(null);
 
   useEffect(() => {
@@ -38,7 +37,6 @@ export const ProductListingSection = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Add intersection observer
   useEffect(() => {
     if (!sentinelRef.current) return;
 
@@ -65,7 +63,6 @@ export const ProductListingSection = () => {
     wishlistHandler(product);
   }, [wishlistHandler]);
 
-  // Reset grid scroll position when products change
   useEffect(() => {
     if (gridRef.current) {
       gridRef.current.scrollTo(0);
